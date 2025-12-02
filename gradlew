@@ -67,12 +67,12 @@ cd "$(dirname "$APP_HOME")" || exit
 ulimit -s unlimited 2>/dev/null || true
 
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
-DEFAULT_JVM_OPTS='"'"'-Xmx64m'"'"' '"'"'-Xms64m'"'"'
+DEFAULT_JVM_OPTS="-Xmx64m -Xms64m"
 
 # Use the JAVA_OPTS and GRADLE_OPTS only for JVM options for sub processes
-export DEFAULT_JVM_OPTS='"'"'$DEFAULT_JVM_OPTS'"'"'
-export JAVA_OPTS='"'"'$JAVA_OPTS'"'"'
-export GRADLE_OPTS='"'"'$GRADLE_OPTS'"'"'
+export DEFAULT_JVM_OPTS
+export JAVA_OPTS
+export GRADLE_OPTS
 
 # Collect all arguments for the java command:
 #   * $DEFAULT_JVM_OPTS, $JAVA_OPTS, $GRADLE_OPTS as the default options
@@ -82,11 +82,10 @@ export GRADLE_OPTS='"'"'$GRADLE_OPTS'"'"'
 #   * The custom file arguments
 #   * The main args
 exec java \
-    '"'"'$DEFAULT_JVM_OPTS'"'"' \
-    '"'"'$JAVA_OPTS'"'"' \
-    '"'"'$GRADLE_OPTS'"'"' \
-    '"'"'-Dorg.gradle.appname='"'"'$(basename "$0")'"'"''"'"' \
-    -classpath \
-    '"'"'"'"'"'$(dirname "$0")/gradle/wrapper/gradle-wrapper.jar'"'"''"'"' \
+    $DEFAULT_JVM_OPTS \
+    $JAVA_OPTS \
+    $GRADLE_OPTS \
+    -Dorg.gradle.appname="$(basename "$0")" \
+    -classpath "$(dirname "$0")/gradle/wrapper/gradle-wrapper.jar" \
     org.gradle.wrapper.GradleWrapperMain \
     "$@"
