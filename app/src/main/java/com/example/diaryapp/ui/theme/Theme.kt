@@ -11,16 +11,40 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+private val LightColorScheme = lightColorScheme(
+    primary = DiaryBlue,
+    onPrimary = WarmWhite,
+    primaryContainer = DiaryBlueVariant,
+    onPrimaryContainer = WarmWhite,
+    secondary = DiaryPink,
+    onSecondary = WarmWhite,
+    secondaryContainer = SoftCream,
+    onSecondaryContainer = DeepCharcoal,
+    background = SoftCream,
+    onBackground = DeepCharcoal,
+    surface = WarmWhite,
+    onSurface = DeepCharcoal,
+    surfaceVariant = SoftCream,
+    onSurfaceVariant = DeepCharcoal,
+    outline = SoftGray
 )
 
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+private val DarkColorScheme = darkColorScheme(
+    primary = DiaryBlueDark,
+    onPrimary = WarmWhite,
+    primaryContainer = DiaryBlueVariantDark,
+    onPrimaryContainer = WarmWhite,
+    secondary = DiaryPinkDark,
+    onSecondary = WarmWhite,
+    secondaryContainer = SoftCreamDark,
+    onSecondaryContainer = DeepCharcoalDark,
+    background = DeepCharcoalDark,
+    onBackground = WarmWhite,
+    surface = DeepCharcoal,
+    onSurface = WarmWhite,
+    surfaceVariant = DeepCharcoal,
+    onSurfaceVariant = WarmWhite,
+    outline = SoftGray
 )
 
 @Composable
@@ -37,7 +61,7 @@ fun DiaryAppTheme(
         SideEffect {
             val window = (view.context as Activity).window
             window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
 
@@ -47,3 +71,4 @@ fun DiaryAppTheme(
         content = content
     )
 }
+
