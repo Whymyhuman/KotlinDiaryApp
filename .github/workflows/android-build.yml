@@ -45,6 +45,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
+      # Langkah Debug: Cek keberadaan gradle-wrapper.jar
+      - name: Debug file listing
+        run: |
+          ls -R gradle/
+          ls -l gradle/wrapper/
+          find . -name "gradle-wrapper.jar"
+
       # Langkah 5: Berikan izin eksekusi pada Gradle wrapper
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
