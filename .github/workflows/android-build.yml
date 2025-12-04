@@ -52,6 +52,12 @@ jobs:
           ls -l gradle/wrapper/
           find . -name "gradle-wrapper.jar"
 
+      # Langkah Debug: Cek integritas JAR dan gradlew
+      - name: Debug JAR and gradlew
+        run: |
+          java -cp gradle/wrapper/gradle-wrapper.jar org.gradle.wrapper.GradleWrapperMain --version
+          cat gradlew
+
       # Langkah 5: Berikan izin eksekusi pada Gradle wrapper
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
