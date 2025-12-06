@@ -14,18 +14,17 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Set up JDK 17
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'temurin'
+        cache: gradle # Use cache for JDK to speed up build
 
-    - name: Setup Gradle (Install)
-      uses: gradle/actions/setup-gradle@v3
-      with:
-        gradle-version: '8.2' # Force specific version installation
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
 
-    - name: Build with Gradle (Direct)
-      run: gradle assembleDebug
+    - name: Build with Gradle
+      run: ./gradlew assembleDebug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
