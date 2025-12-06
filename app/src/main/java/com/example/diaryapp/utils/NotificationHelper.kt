@@ -8,7 +8,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.example.diaryapp.MainActivity
+import com.example.diaryapp.ui.MainActivity
 import com.example.diaryapp.R
 
 class NotificationHelper(private val context: Context) {
