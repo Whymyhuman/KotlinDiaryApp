@@ -111,6 +111,7 @@ fun BackupScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BackupOption(
     icon: androidx.compose.ui.graphics.vector.ImageVector,
