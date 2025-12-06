@@ -9,5 +9,8 @@ data class DiaryEntry(
     val id: Int = 0,
     val title: String,
     val content: String,
-    val timestamp: Long
+    val timestamp: Long,
+    val category: String = "General",
+    val isFavorite: Boolean = false,
+    val reminderTime: Long? = null
 )
